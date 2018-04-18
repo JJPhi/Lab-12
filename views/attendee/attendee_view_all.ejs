@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendee - View All</title>
+</head>
+<body>
+<h1>Attendee</h1>
+
+<table border="1">
+    <tr>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    <% for(var i = 0; i < attendee.length; i++) { %>
+    <tr>
+        <td><%= attendee[i].email %></td>
+        <td><%= attendee[i].first_name %></td>
+        <td><%= attendee[i].last_name %></td>
+    </tr>
+
+    <% } %>
+</table>
+
+</body>
+</html>

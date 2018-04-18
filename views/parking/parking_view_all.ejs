@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parking - View All</title>
+</head>
+<body>
+<h1>Parking</h1>
+
+<table border="1">
+    <tr>
+        <th>Parking Number</th>
+        <th>Vehicle</th>
+    </tr>
+    <% for(var i = 0; i < parking.length; i++) { %>
+    <tr>
+        <td><%= parking[i].parking_num %></td>
+        <td><%= parking[i].vehicle %></td>
+    </tr>
+
+    <% } %>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Address - View All</title>
+</head>
+<body>
+<h1>Address</h1>
+
+<table border="1">
+    <tr>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip Code</th>
+    </tr>
+    <% for(var i = 0; i < address1.length; i++) { %>
+    <tr>
+        <td><%= address1[i].street %></td>
+        <td><%= address1[i].city %></td>
+        <td><%= address1[i].state %></td>
+        <td><%= address1[i].zip_code %></td>
+    </tr>
+
+    <% } %>
+</table>
+
+</body>
+</html>

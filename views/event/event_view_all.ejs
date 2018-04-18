@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event - View All</title>
+</head>
+<body>
+<h1>Event</h1>
+
+<table border="1">
+    <tr>
+        <th>Event Name</th>
+    </tr>
+    <% for(var i = 0; i < event.length; i++) { %>
+    <tr>
+        <td><%= event[i].event_name %></td>
+    </tr>
+
+    <% } %>
+</table>
+
+</body>
+</html>

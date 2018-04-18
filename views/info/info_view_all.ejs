@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendee - View All</title>
+</head>
+<body>
+<h1>Attendee</h1>
+
+<table border="1">
+    <tr>
+        <th>Allowed</th>
+        <th>Denied</th>
+    </tr>
+    <% for(var i = 0; i < info.length; i++) { %>
+    <tr>
+        <td><%= info[i].allowed %></td>
+        <td><%= info[i].denied %></td>
+    </tr>
+
+    <% } %>
+</table>
+
+</body>
+</html>
