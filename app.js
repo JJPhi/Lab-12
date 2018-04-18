@@ -16,7 +16,7 @@ var address1 = require('./routes/address1');
 var event = require('./routes/event');
 var attendee = require('./routes/attendee');
 var parking = require('./routes/parking');
-var info = require('./routes/info');
+var info = require('./routes/info'); //test
 
 
 var app = express();
