@@ -4,17 +4,22 @@
     <title>Address - View All</title>
 </head>
 <body>
-<h1>Address</h1>
+<h1><a href="/address/add">Address</a> <br /></h1>
 
 <table border="1">
-    <tr>
-        <th>Street</th>
-        <th>Zip Code</th>
-    </tr>
+    <tr><th>Street</th><th>Zip Code</th><th>Actions</th></tr>
     <% for(var i = 0; i < address.length; i++) { %>
     <tr>
         <td><%= address[i].street %></td>
         <td><%= address[i].zip_code %></td>
+        <td>
+            <a href="/address/edit/?address_id=<%= address[i].address_id %>">
+                Edit
+            </a>
+            &nbsp;<a href="/address/delete?address_id=<%= address[i].address_id %>">
+                Delete
+            </a>
+        </td>
     </tr>
 
     <% } %>

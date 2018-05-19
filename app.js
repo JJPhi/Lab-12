@@ -11,6 +11,8 @@ var company = require('./routes/company');
 var skill = require('./routes/skill');
 var address = require('./routes/address');
 var account = require('./routes/account');
+var school = require('./routes/school');
+var resume = require('./routes/resume');
 
 var address1 = require('./routes/address1');
 var event = require('./routes/event');
@@ -39,6 +41,8 @@ app.use('/company', company);
 app.use('/skill', skill);
 app.use('/address', address);
 app.use('/account', account);
+app.use('/school', school);
+app.use('/resume', resume);
 
 app.use('/address1', address1);
 app.use('/event', event);

@@ -10,19 +10,23 @@
             <tr><th>Name</th><th>Actions</th></tr>
             <% for(var i=0; result.length > i; i++ ) { %>
             <tr>
-                <td>
-                    <a href="/company/?company_id=<%= result[i].company_id %>">
-                        <%= result[i].company_name %>
-                    </a>
-                </td>
+                <td><%= result[i].company_name %></td>
                 <td>
                     <a href='/company/edit/?company_id=<%= result[i].company_id %>'>
                         Edit
+                    </a>
+                    &nbsp;<a href="/company/delete?company_id=<%= result[i].company_id %>">
+                        Delete
                     </a>
                 </td>
             </tr>
             <% } %>
         </table>
 
+    <% if(locals.was_successful_delete) { %>
+    <div>
+        <p style="color:red;">Company delete was successful</p>
+    </div>
+    <% } %>
     </body>
 </html>

@@ -26,7 +26,7 @@ router.get('/insert', function(req, res) {
             res.send(err);
         }
         else {
-            res.redirect(302, '/account/all');
+            res.redirect(302, '/account/account_view_all');
         }
     });
 });
@@ -37,7 +37,7 @@ router.get('/edit', function(req, res){
             res.send(err);
         }
         else {
-            res.render('account/accountUpdate',
+            res.render('account/AccountUpdate',
                 {account: result[0][0]}
             );
         }

@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Company - Edit</title>
+    <title>School - Edit</title>
 </head>
 <body>
-<h1>Company Edit</h1>
-<form action="/company/update" method="get">
+<h1>School Edit</h1>
+<form action="/school/update" method="get">
 
-    Company Name: <input
-            id="company_name"
-            name="company_name"
+    School Name: <input
+            id="school_name"
+            name="school_name"
             type="text"
-            value="<%= company.company_name %>"
+            value="<%= school.school_name %>"
     />
 
     <input type="hidden"
-           id="company_id"
-           name="company_id"
+           id="school_id"
+           name="school_id"
            type="text"
-           value="<%= company.company_id %>"
+           value="<%= school.school_id %>"
     />
-
     <br />
     <br />
     Address <br />
     <% for(var i=0; address_result.length > i; i++ ) {
         var checked = "";
 
-        if(address_result[i].company_id != null) {
+        if(address_result[i].school_id != null) {
             checked = "checked";
         }
     %>
     <input type="checkbox" name="address_id" <%= checked %> value="<%=
         address_result[i].address_id %>"> <%= address_result[i].street + ', '
     + address_result[i].zip_code %>
-       <br />
+    <br />
     <% } %>
     <br />
     <input type="submit" />
-
 </form>
 </body>
 </html>

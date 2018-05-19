@@ -9,7 +9,7 @@ router.get('/all', function(req, res) {
             res.send(err);
         }
         else {
-            res.render('company/address_view_all', {address:result[0]});
+            res.render('address/address_view_all', {address:result[0]});
         }
     });
 });
@@ -30,4 +30,38 @@ router.get('/insert', function(req, res) {
     });
 });
 
+router.get('/edit', function(req, res){
+    address_dal.getinfo(req.query.address_id, function(err, result) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.render('address/AddressUpdate',
+                {address: result[0][0]}
+            );
+        }
+    });
+});
+
+router.get('/update', function(req, res) {
+    address_dal.update(req.query, function(err, result){
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/address/all');
+        }
+    });
+});
+
+router.get('/delete', function(req, res) {
+    address_dal.delete(req.query, function(err, result){
+        if(err) {
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/address/all');
+        }
+    });
+});
 module.exports = router;

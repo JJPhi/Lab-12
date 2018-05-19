@@ -5,10 +5,8 @@ var db  = require('./db_connection.js');
 var connection = mysql.createConnection(db.config);
 
 exports.getAll = function(callback) {
-    // stored procedure to call
-    var query = 'CALL address_getall();';
+    var query = 'SELECT * FROM school;';
 
-    // call the stored procedure
     connection.query(query, function(err, result) {
         callback(err, result);
     });
@@ -16,19 +14,19 @@ exports.getAll = function(callback) {
 
 exports.insert = function(params, callback) {
 
-    var query = 'INSERT INTO address (street, zip_code) VALUES (?, ?)';
+    var query = 'INSERT INTO school (school_name, address_id) VALUES (?, ?)';
 
-    var queryData = [params.street, params.zip_code];
+    var queryData = [params.school_name, params.address_id];
 
     connection.query(query, queryData, function(err, result) {
-        callback(err, result);
+            callback(err, result);
     });
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE address SET street = ?, zip_code = ? WHERE address_id = ?';
+    var query = 'UPDATE school SET school_name = ?, address_id = ? WHERE school_id = ?';
 
-    var queryData = [params.street, params.zip_code, params.address_id];
+    var queryData = [params.school_name, params.address_id, params.school_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -36,9 +34,9 @@ exports.update = function(params, callback) {
 
 };
 
-exports.getinfo = function(address_id, callback) {
-    var query = 'CALL address_getinfo(?)';
-    var queryData = [address_id];
+exports.getinfo = function(school_id, callback) {
+    var query = 'CALL school_getinfo(?)';
+    var queryData = [school_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
@@ -46,9 +44,9 @@ exports.getinfo = function(address_id, callback) {
 };
 
 exports.delete = function(params, callback) {
-    var query = 'DELETE FROM address WHERE address_id = ?';
+    var query = 'DELETE FROM school WHERE school_id = ?';
 
-    var queryData = [params.address_id];
+    var queryData = [params.school_id];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

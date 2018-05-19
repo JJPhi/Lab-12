@@ -33,16 +33,12 @@ exports.insert = function(params, callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE account SET email = ? WHERE account_id = ?';
+    var query = 'UPDATE account SET email = ?, first_name = ?, last_name = ? WHERE account_id = ?';
 
-    var queryData = [params.email, params.account_id];
+    var queryData = [params.email, params.first_name, params.last_name, params.account_id];
 
-    var query = 'UPDATE account SET first_name = ? WHERE account_id = ?';
-
-    var queryData = [params.first_name, params.account_id];
-
-    var query = 'UPDATE account SET last_name = ? WHERE account_id = ?';
-
-    var queryData = [params.last_name, params.account_id];
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
 
 };

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume - View All</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<h1><a href="/resume/add/select_user">Resume</a> <br /></h1>
+
+<table border="1">
+    <tr><th>First Name</th><th>Last Name</th><th>Resume Name</th><th>Actions</th></tr>
+    <% for(var i = 0; i < result.length; i++) { %>
+    <tr>
+        <td><%= result[i].first_name %></td>
+        <td><%= result[i].last_name %></td>
+        <td><%= result[i].resume_name %></td>
+        <td>
+            <a href="/resume/edit/?resume_id=<%= result[i].resume_id %>">
+                Edit
+            </a>
+            &nbsp;<a href="/resume/delete?resume_id=<%= result[i].resume_id %>">
+                Delete
+            </a>
+        </td>
+    </tr>
+
+    <% } %>
+</table>
+
+<% if(locals.was_successful_insert) { %>
+        <div>
+            <p style="color:green;">Resume insert was successful</p>
+        </div>
+<% } %>
+<% if(locals.was_successful_delete) { %>
+<div>
+    <p style="color:red;">Resume delete was successful</p>
+</div>
+<% } %>
+
+</body>
+</html>

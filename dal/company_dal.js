@@ -25,11 +25,13 @@ exports.insert = function(params, callback) {
 
     var query = 'INSERT INTO company (company_name) VALUES (?)';
 
-    var queryData = [params.company_name];
+    var queryData = [params.company_name, params.company_id];
 
     connection.query(query, queryData, function(err, result) {
+        companyAddressInsert(params.company_id, params.address_id, function(err, result) {
+            callback(err, result);
+        });
         if(err || params.address_id === undefined) {
-            console.log(err);
             callback(err, result);
         } else {
 
@@ -86,4 +88,15 @@ exports.update = function(params, callback) {
             callback(err, result);
         });
     });
+};
+
+exports.delete = function(params, callback) {
+    var query = 'DELETE FROM company WHERE company_id = ?';
+
+    var queryData = [params.company_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+
 };
